@@ -15,16 +15,15 @@ while play == True:
     correct = 0
     incorrect = 0
     round = len(states)
-    print(correct, incorrect, round)
+    # print(correct, incorrect, round)
 
     for i in states:
-        print(round)
+        print("States Remaining", round)
+        print("----------------------------")
         print("State: " + i["name"])
-        guess_capital = input("Guess the Capital: ")
+        guess_capital = input("Guess the Capital: \n")
         guess = i["capital"].lower()
-        print(guess, guess_capital)
         guess.lower() == guess_capital.lower()
-        print(guess, guess_capital)
         if guess == guess_capital:
             correct+=1
             round-=1
