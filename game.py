@@ -8,26 +8,30 @@ while play == True:
     random.shuffle(states)
 
     print("Welcome to 'Learn Your State Capitals! When each state is shown, write the capital that matches")
-    print("**Note: All capital cities must be UPPERCASE to be considererd correct.")
+
     print("Please guess the capital: ")
 
-#Set counters to 0
+# Set counters to 0
     correct = 0
     incorrect = 0
     round = len(states)
-    print(correct,incorrect, round)
- 
+    print(correct, incorrect, round)
+
     for i in states:
         print(round)
         print("State: " + i["name"])
         guess_capital = input("Guess the Capital: ")
-        if i["capital"] == guess_capital:
+        guess = i["capital"].lower()
+        print(guess, guess_capital)
+        guess.lower() == guess_capital.lower()
+        print(guess, guess_capital)
+        if guess == guess_capital:
             correct+=1
             round-=1
             print(round, correct)
             print("Correct")
             print("# Correct:", correct, "# Incorrect", incorrect)
-        elif i["capital"] != guess_capital:
+        elif guess != guess_capital:
             incorrect+=1
             round-=1
             print(round,incorrect)
