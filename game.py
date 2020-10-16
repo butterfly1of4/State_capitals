@@ -7,8 +7,8 @@ play = True
 while play == True:
     random.shuffle(states)
 
-    print("Welcome to 'Learn Your State Capitals! When each state is shown, write the capital that matches")
-
+    print("\n Welcome to 'Learn Your State Capitals! When each state is shown, write the capital that matches. \n")
+    print("******************************* \n")
     print("Please guess the capital: ")
 
 # Set counters to 0
@@ -20,22 +20,23 @@ while play == True:
     for i in states:
         print("States Remaining", round)
         print("----------------------------")
-        print("State: " + i["name"])
-        guess_capital = input("Guess the Capital: \n")
-        guess = i["capital"].lower()
-        guess.lower() == guess_capital.lower()
+        print("State: " + i["name"],"\n")
+        guess_capital = input("Capital: \n").lower()
+        guess_capital = guess_capital.casefold()
+        guess = i["capital"].casefold()
+        guess.casefold() == guess_capital.casefold()
+       
         if guess == guess_capital:
             correct+=1
             round-=1
-            print(round, correct)
-            print("Correct")
+            print("Correct!!")
             print("# Correct:", correct, "# Incorrect", incorrect)
         elif guess != guess_capital:
             incorrect+=1
             round-=1
-            print(round,incorrect)
+            print("Incorrect.")
             print("Incorrect: ", i["capital"])
-            print("# Correct:", correct, "# Incorrect", incorrect)
+            print("# Correct:", correct, "# Incorrect", incorrect, "\n")
         if round == 0:
             print("The game is over", correct, incorrect)
             print("Total Score:", correct+incorrect)
